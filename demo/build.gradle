@@ -1,4 +1,4 @@
-apply plugin: 'com.android.library'
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
@@ -8,6 +8,7 @@ android {
         targetSdkVersion 27
         versionCode 1
         versionName "1.0.0"
+        applicationId "org.ecloga.dashbug"
     }
     buildTypes {
         release {
@@ -30,4 +31,5 @@ buildscript {
 dependencies {
     compile 'com.android.support:appcompat-v7:27.0.0'
     compile 'com.android.support:design:27.0.0'
+    compile project(':app')
 }

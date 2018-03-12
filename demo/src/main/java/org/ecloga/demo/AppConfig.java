@@ -1,4 +1,4 @@
-package org.ecloga.dashbug;
+package org.ecloga.demo;
 
 public class AppConfig {
 

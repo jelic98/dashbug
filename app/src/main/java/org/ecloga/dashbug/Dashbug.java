@@ -1,18 +1,29 @@
 package org.ecloga.dashbug;
 
+import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
-import java.lang.reflect.Field;
+import java.io.Serializable;
 import java.util.HashMap;
-import java.util.Locale;
+import java.lang.reflect.Field;
+import android.support.v4.app.NotificationCompat;
+import static android.content.Context.NOTIFICATION_SERVICE;
 
-public class Dashbug {
+public class Dashbug implements Serializable {
 
     private static final String TAG = "Dashbug";
+    private static final int NOTIFICATION_ID = 9898;
+    private static final int REQUEST_FIELDS = 1;
 
     private Class config;
 
-    // todo add constructor that accepts object
-    // todo enable/disable Dasbug based on BuildConfig debug flag
+    // todo add constructor that accepts configuration object
+    // todo enable/disable Dashbug based on BuildConfig debug flag
 
     /**
      * @param config configuration class
@@ -96,5 +107,36 @@ public class Dashbug {
         }finally {
             f.setAccessible(access);
         }
+    }
+
+    /**
+     * @param activity activity which will be started after saving fields
+     * @param context application context for resource access
+     */
+    public void start(Activity activity, Context context) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("controller", this);
+
+        Intent intent = new Intent(activity, FieldsActivity.class);
+        intent.putExtras(bundle);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED
+                | Intent.FLAG_ACTIVITY_CLEAR_TOP
+                | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+        PendingIntent pending = PendingIntent.getActivity(context, REQUEST_FIELDS,
+                intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Notification notification = new NotificationCompat.Builder(context)
+                .setTicker(context.getString(R.string.lib_name))
+                .setSmallIcon(R.drawable.ic_notify)
+                .setContentTitle(context.getString(R.string.lib_name))
+                .setContentText(context.getString(R.string.caption_start))
+                .setContentIntent(pending)
+                .build();
+
+        NotificationManager manager = (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
+
+        manager.notify(NOTIFICATION_ID, notification);
     }
 }

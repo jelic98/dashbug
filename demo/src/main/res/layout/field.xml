@@ -15,10 +15,10 @@
             style="@style/TextView.DarkRound"
             android:id="@+id/tvName"/>
 
-    <EditText
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/field_margin"
             android:textSize="@dimen/field_text"
-            android:id="@+id/etValue"/>
+            android:id="@+id/tvValue"/>
 </LinearLayout>

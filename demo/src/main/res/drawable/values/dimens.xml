@@ -1,0 +1,7 @@
+<resources>
+    <dimen name="field_padding">10dp</dimen>
+    <dimen name="field_margin">5dp</dimen>
+    <dimen name="field_text">18sp</dimen>
+    <dimen name="field_radius">5dp</dimen>
+    <dimen name="action_height">75dp</dimen>
+</resources>
