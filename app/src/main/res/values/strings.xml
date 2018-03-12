@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Dashbug</string>
+    <string name="caption_set">Set</string>
 </resources>
