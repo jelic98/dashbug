@@ -3,6 +3,8 @@ package org.ecloga.dashbug;
 import java.util.Map;
 import android.os.Bundle;
 import android.app.Activity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,7 @@ public class FieldsActivity extends Activity {
     private static final String TAG = "FieldsActivity";
 
     private Dashbug db;
+    private Map<String, String> fields;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +43,9 @@ public class FieldsActivity extends Activity {
     private void showFields(ViewGroup parent) {
         parent.removeAllViews();
 
-        Map<String, String> fields = db.getFields();
+        fields = db.getFields();
 
-        for(String name : fields.keySet()) {
+        for(final String name : fields.keySet()) {
             View vField = getLayoutInflater().inflate(R.layout.field_view, null);
 
             TextView tvName = vField.findViewById(R.id.tvName);
@@ -50,18 +53,26 @@ public class FieldsActivity extends Activity {
 
             EditText etValue = vField.findViewById(R.id.etValue);
             etValue.setText(fields.get(name));
-            etValue.setHint(name);
+            etValue.setHint(getString(R.string.caption_value) + " " + name);
+            etValue.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    fields.put(name, s.toString());
+                }
+            });
 
             parent.addView(vField);
         }
     }
 
     public void saveFields(View v) {
-        Map<String, String> fields = db.getFields();
-
-        for(String name : fields.keySet()) {
-            // todo db.setField(name, etValue.getText().toString());
-        }
+        db.setFields(fields);
 
         finish();
     }

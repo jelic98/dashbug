@@ -17,7 +17,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        db = new Dashbug(AppConfig.class);
+        db = new Dashbug(AppConfig.class, BuildConfig.DEBUG);
         db.start(this, getApplicationContext());
 
         showFields((ViewGroup) findViewById(R.id.mainLayout));

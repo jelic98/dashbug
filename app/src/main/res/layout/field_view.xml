@@ -16,7 +16,7 @@
             android:id="@+id/tvName"/>
 
     <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/field_margin"
             android:textSize="@dimen/field_text"

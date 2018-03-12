@@ -11,7 +11,11 @@ import android.util.Log;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.lang.reflect.Field;
+import java.util.Map;
+
 import android.support.v4.app.NotificationCompat;
+import android.view.View;
+
 import static android.content.Context.NOTIFICATION_SERVICE;
 
 public class Dashbug implements Serializable {
@@ -21,20 +25,34 @@ public class Dashbug implements Serializable {
     private static final int REQUEST_FIELDS = 1;
 
     private Class config;
-
-    // todo add constructor that accepts configuration object
-    // todo enable/disable Dashbug based on BuildConfig debug flag
+    private boolean disabled;
 
     /**
      * @param config configuration class
+     * @param enabled debug flag (usually BuildConfig.DEBUG)
      * @throws  NullPointerException if configuration class is null
      */
-    public Dashbug(Class config) {
+    public Dashbug(Class config, boolean enabled) {
         if(config == null) {
             throw new NullPointerException();
         }
 
         this.config = config;
+        this.disabled = !enabled;
+    }
+
+    /**
+     * @param config configuration object
+     * @param enabled debug flag (usually BuildConfig.DEBUG)
+     * @throws  NullPointerException if configuration object is null
+     */
+    public Dashbug(Object config, boolean enabled) {
+        if(config == null) {
+            throw new NullPointerException();
+        }
+
+        this.config = config.getClass();
+        this.disabled = !enabled;
     }
 
     /**
@@ -63,12 +81,23 @@ public class Dashbug implements Serializable {
     }
 
     /**
+     * @param fields map holding field name and field value to be set
+     */
+    public void setFields(Map<String, String> fields) {
+        if(fields == null) {
+            return;
+        }
+
+        for(String name : fields.keySet()) {
+            setField(name, fields.get(name));
+        }
+    }
+
+    /**
      * @param name field name which value will be set
      * @param value new field value
      */
     public void setField(String name, String value) {
-        // todo accept Object value
-
         Field f;
 
         try {
@@ -114,6 +143,10 @@ public class Dashbug implements Serializable {
      * @param context application context for resource access
      */
     public void start(Activity activity, Context context) {
+        if(this.disabled) {
+            return;
+        }
+
         Bundle bundle = new Bundle();
         bundle.putSerializable("controller", this);
 

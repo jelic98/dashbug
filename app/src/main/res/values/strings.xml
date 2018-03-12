@@ -2,5 +2,6 @@
     <string name="lib_name">Dashbug</string>
     <string name="caption_set">Set</string>
     <string name="caption_start">Tap to tweak configuration</string>
+    <string name="caption_value">Value for</string>
     <string name="content_save">Button: Save fields</string>
 </resources>
