@@ -92,11 +92,9 @@ public class Dashbug implements Serializable {
 
             f.setAccessible(true);
 
-            try {
-                map.put(f.getName(), f.get(this.config).toString());
-            }catch(Exception e) {
-                Log.e(TAG, e.getMessage());
-            }
+            String name = f.getName();
+
+            map.put(name, getField(name));
 
             f.setAccessible(access);
         }
@@ -122,7 +120,13 @@ public class Dashbug implements Serializable {
      * @return value field value
      */
     public String getField(String name) {
-        // todo implement and use it in getFields()
+        try {
+            return this.config.getDeclaredField(name).get(this.config).toString();
+        }catch(Exception e) {
+            Log.e(TAG, e.getMessage());
+        }
+
+        return null;
     }
 
     /**
