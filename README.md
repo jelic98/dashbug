@@ -2,7 +2,7 @@
 
 # Dashbug
 
-Android library that lets developers modify configuration class(es) at runtime.
+Android library that lets developers modify configuration class(es) at runtime. Useful in situations when app's behaviour changes depending on fields in configuration class like theme switcher, user credentials, various flags, etc. Developers can alter these fields without recompiling source code. 
 
 ## Demo
 
