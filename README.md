@@ -1,4 +1,5 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![](https://jitpack.io/v/jelic98/dashbug.svg)](https://jitpack.io/#jelic98/dashbug)
 
 # Dashbug
 
@@ -8,15 +9,30 @@ Android library that lets developers modify configuration class(es) at runtime. 
 
 ![Alt Text](https://raw.githubusercontent.com/jelic98/dashbug/master/doc/demo.gif)
 
-## Usage
+## Installing
 
-Gradle dependency:
+1. Add repository in root ```build.gradle```
 
-```java
-    TODO: Publish to MavenCentral
+```gradle
+    allprojects {
+        repositories {
+            ...
+            maven { url 'https://jitpack.io' }
+        }
+    }
 ```
 
-Construction:
+2. Add the dependency
+
+```gradle
+    dependencies {
+        compile 'com.github.jelic98:dashbug:1.0.0'
+    }
+```
+
+## Usage
+
+Construction
 
 ```java
     // provide configuration class
@@ -25,13 +41,13 @@ Construction:
     db.start(this, getApplicationContext());
 ```
 
-Getting single field:
+Getting single field
 
 ```java
     String value = db.getField("COUNT");
 ```
 
-Getting all fields:
+Getting all fields
 
 ```java
     Map<String, String> fields = db.getFields();
@@ -40,7 +56,7 @@ Getting all fields:
     }
 ```
 
-Setting single field:
+Setting single field
 
 ```java
     db.setField("COUNT", "123");
