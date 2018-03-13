@@ -25,6 +25,12 @@ Construction:
     db.start(this, getApplicationContext());
 ```
 
+Getting single field:
+
+```java
+    String value = db.getField("COUNT");
+```
+
 Getting all fields:
 
 ```java
