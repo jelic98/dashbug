@@ -29,6 +29,30 @@ public class Dashbug implements Serializable {
 
     /**
      * @param config configuration class
+     * @throws  NullPointerException if configuration class is null
+     */
+    public Dashbug(Class config) {
+        if(config == null) {
+            throw new NullPointerException();
+        }
+
+        this.config = config;
+    }
+
+    /**
+     * @param config configuration object
+     * @throws  NullPointerException if configuration object is null
+     */
+    public Dashbug(Object config) {
+        if(config == null) {
+            throw new NullPointerException();
+        }
+
+        this.config = config.getClass();
+    }
+
+    /**
+     * @param config configuration class
      * @param enabled debug flag (usually BuildConfig.DEBUG)
      * @throws  NullPointerException if configuration class is null
      */
@@ -58,7 +82,7 @@ public class Dashbug implements Serializable {
     /**
      * @return map of field name and field value pairs in configuration class
      */
-    public HashMap<String, String> getFields() {
+    public Map<String, String> getFields() {
         HashMap<String, String> map = new HashMap<>();
 
         Field[] fields = this.config.getDeclaredFields();
@@ -91,6 +115,14 @@ public class Dashbug implements Serializable {
         for(String name : fields.keySet()) {
             setField(name, fields.get(name));
         }
+    }
+
+    /**
+     * @param name field name
+     * @return value field value
+     */
+    public String getField(String name) {
+        // todo implement and use it in getFields()
     }
 
     /**
