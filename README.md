@@ -1,5 +1,6 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![](https://jitpack.io/v/jelic98/dashbug.svg)](https://jitpack.io/#jelic98/dashbug)
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Dashbug-green.svg?style=flat )]( https://android-arsenal.com/details/1/6891)
 
 # Dashbug
 
