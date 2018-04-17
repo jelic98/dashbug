@@ -29,7 +29,7 @@ public class Dashbug implements Serializable {
     private boolean disabled;
 
     /**
-     * @param config {Class} configuration class
+     * @param config configuration class
      * @throws NullPointerException if configuration class is null
      */
     public Dashbug(Class config) {
@@ -41,7 +41,7 @@ public class Dashbug implements Serializable {
     }
 
     /**
-     * @param config {Object} configuration object
+     * @param config configuration object
      * @throws NullPointerException if configuration object is null
      */
     public Dashbug(Object config) {
@@ -53,8 +53,8 @@ public class Dashbug implements Serializable {
     }
 
     /**
-     * @param config {Class} configuration class
-     * @param enabled {boolean} debug flag (usually BuildConfig.DEBUG) - if set to false then no notification will be shown
+     * @param config configuration class
+     * @param enabled debug flag (usually BuildConfig.DEBUG) - if set to false then no notification will be shown
      * @throws NullPointerException if configuration class is null
      */
     public Dashbug(Class config, boolean enabled) {
@@ -67,8 +67,8 @@ public class Dashbug implements Serializable {
     }
 
     /**
-     * @param config {Object} configuration object
-     * @param enabled {boolean} debug flag (usually BuildConfig.DEBUG)
+     * @param config configuration object
+     * @param enabled debug flag (usually BuildConfig.DEBUG)
      * @throws NullPointerException if configuration object is null
      */
     public Dashbug(Object config, boolean enabled) {
@@ -104,7 +104,7 @@ public class Dashbug implements Serializable {
     }
 
     /**
-     * @param fields {Map<String, String>} map holding field name and field value to be set
+     * @param fields map holding field name and field value to be set
      */
     public void setFields(Map<String, String> fields) {
         if(fields == null) {
@@ -117,7 +117,7 @@ public class Dashbug implements Serializable {
     }
 
     /**
-     * @param name {String} field name
+     * @param name field name
      * @return value field value
      */
     public String getField(String name) {
@@ -131,8 +131,8 @@ public class Dashbug implements Serializable {
     }
 
     /**
-     * @param name {String} field name which value will be set
-     * @param value {String} new field value
+     * @param name field name which value will be set
+     * @param value new field value
      */
     public void setField(String name, String value) {
         Field f;
@@ -176,8 +176,8 @@ public class Dashbug implements Serializable {
     }
 
     /**
-     * @param activity {Activity} activity which will be started after saving fields
-     * @param context {Context} application context for resource access
+     * @param activity activity which will be started after saving fields
+     * @param context application context for resource access
      */
     public void start(Activity activity, Context context) {
         if(this.disabled) {
