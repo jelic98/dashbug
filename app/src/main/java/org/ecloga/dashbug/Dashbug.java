@@ -15,6 +15,7 @@ import java.util.Map;
 
 import android.support.v4.app.NotificationCompat;
 import android.view.View;
+import android.widget.Button;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 
@@ -28,8 +29,8 @@ public class Dashbug implements Serializable {
     private boolean disabled;
 
     /**
-     * @param config configuration class
-     * @throws  NullPointerException if configuration class is null
+     * @param config {Class} configuration class
+     * @throws NullPointerException if configuration class is null
      */
     public Dashbug(Class config) {
         if(config == null) {
@@ -40,8 +41,8 @@ public class Dashbug implements Serializable {
     }
 
     /**
-     * @param config configuration object
-     * @throws  NullPointerException if configuration object is null
+     * @param config {Object} configuration object
+     * @throws NullPointerException if configuration object is null
      */
     public Dashbug(Object config) {
         if(config == null) {
@@ -52,9 +53,9 @@ public class Dashbug implements Serializable {
     }
 
     /**
-     * @param config configuration class
-     * @param enabled debug flag (usually BuildConfig.DEBUG)
-     * @throws  NullPointerException if configuration class is null
+     * @param config {Class} configuration class
+     * @param enabled {boolean} debug flag (usually BuildConfig.DEBUG) - if set to false then no notification will be shown
+     * @throws NullPointerException if configuration class is null
      */
     public Dashbug(Class config, boolean enabled) {
         if(config == null) {
@@ -66,9 +67,9 @@ public class Dashbug implements Serializable {
     }
 
     /**
-     * @param config configuration object
-     * @param enabled debug flag (usually BuildConfig.DEBUG)
-     * @throws  NullPointerException if configuration object is null
+     * @param config {Object} configuration object
+     * @param enabled {boolean} debug flag (usually BuildConfig.DEBUG)
+     * @throws NullPointerException if configuration object is null
      */
     public Dashbug(Object config, boolean enabled) {
         if(config == null) {
@@ -103,7 +104,7 @@ public class Dashbug implements Serializable {
     }
 
     /**
-     * @param fields map holding field name and field value to be set
+     * @param fields {Map<String, String>} map holding field name and field value to be set
      */
     public void setFields(Map<String, String> fields) {
         if(fields == null) {
@@ -116,7 +117,7 @@ public class Dashbug implements Serializable {
     }
 
     /**
-     * @param name field name
+     * @param name {String} field name
      * @return value field value
      */
     public String getField(String name) {
@@ -130,8 +131,8 @@ public class Dashbug implements Serializable {
     }
 
     /**
-     * @param name field name which value will be set
-     * @param value new field value
+     * @param name {String} field name which value will be set
+     * @param value {String} new field value
      */
     public void setField(String name, String value) {
         Field f;
@@ -175,8 +176,8 @@ public class Dashbug implements Serializable {
     }
 
     /**
-     * @param activity activity which will be started after saving fields
-     * @param context application context for resource access
+     * @param activity {Activity} activity which will be started after saving fields
+     * @param context {Context} application context for resource access
      */
     public void start(Activity activity, Context context) {
         if(this.disabled) {
