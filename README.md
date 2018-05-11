@@ -2,7 +2,6 @@
 [![](https://jitpack.io/v/jelic98/dashbug.svg)](https://jitpack.io/#jelic98/dashbug)
 [![API](https://img.shields.io/badge/API-19%2B-orange.svg?style=flat)](https://android-arsenal.com/api?level=19)
 [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Dashbug-brightgreen.svg?style=flat)]( https://android-arsenal.com/details/1/6891)
-[![Javadoc](https://img.shields.io/badge/JavaDoc-master-red.svg?style=flat)](http://kevalpatel2106.com/android-ruler-picker/)
 
 # Dashbug
 
