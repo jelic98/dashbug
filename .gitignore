@@ -1,9 +1,8 @@
 *.iml
+*.apk
 .DS_Store
 .externalNativeBuild
 /.gradle
 /.idea
 /build
 /captures
-/.idea/workspace.xml
-/.idea/libraries
