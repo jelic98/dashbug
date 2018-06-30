@@ -34,32 +34,7 @@ Android library that lets developers modify configuration class(es) at runtime. 
 
 ## Usage
 
-Construction
-
 ```java
-    // provide configuration class
-    Dashbug db = new Dashbug(AppConfig.class);
-    // show notification
-    db.start(this, getApplicationContext());
-```
-
-Getting single field
-
-```java
-    String value = db.getField("COUNT");
-```
-
-Getting all fields
-
-```java
-    Map<String, String> fields = db.getFields();
-    for(String name : fields.keySet()) {
-        Log.i(TAG, "Name: " + name + ", Value: " + fields.get(name));
-    }
-```
-
-Setting single field
-
-```java
-    db.setField("COUNT", "123");
+    Dashbug db = new Dashbug(AppConfig.class); // Provide configuration class
+    db.start(this, getApplicationContext()); // Show notification
 ```
