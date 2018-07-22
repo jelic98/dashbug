@@ -7,9 +7,12 @@
 
 Android library that lets developers modify configuration class(es) at runtime. Useful in situations when app's behaviour changes depending on fields in configuration class like theme switcher, user credentials, various flags, etc. Developers can alter these fields without recompiling source code. 
 
+![App icon](https://raw.githubusercontent.com/jelic98/dashbug/master/doc/icon.png)
+This awesome icon was made by @iqbalhood.
+
 ## Demo
 
-![Alt Text](https://raw.githubusercontent.com/jelic98/dashbug/master/doc/demo.gif)
+![Demo preview](https://raw.githubusercontent.com/jelic98/dashbug/master/doc/demo.gif)
 
 ## Installing
 
