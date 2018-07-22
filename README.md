@@ -9,7 +9,7 @@ Android library that lets developers modify configuration class(es) at runtime. 
 
 ![App icon](https://raw.githubusercontent.com/jelic98/dashbug/master/doc/icon.png)
 
-This awesome icon was made by @iqbalhood.
+This awesome icon was made by [@iqbalhood](https://github.com/iqbalhood).
 
 ## Demo
 
