@@ -42,3 +42,8 @@ This awesome icon was made by [@iqbalhood](https://github.com/iqbalhood).
     Dashbug db = new Dashbug(AppConfig.class); // Provide configuration class
     db.start(this, getApplicationContext()); // Show notification
 ```
+
+## TODO
+
+* Add CheckBox for boolean fields
+* Adapt NotificationCompat for Android O
